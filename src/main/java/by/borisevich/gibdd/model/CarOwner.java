@@ -1,8 +1,7 @@
 package by.borisevich.gibdd.model;
 
 import javax.persistence.*;
-import java.util.Date;
-
+import java.util.List;
 
 @Entity
 @Table(name = "CarOwner")
@@ -13,17 +12,22 @@ public class CarOwner {
     @GeneratedValue
     private int id;
 
-    private String fullName;
+    private String name;
+    private String surname;
+    private String secondName;
     private String address;
     private String dateOfBirth;
     private String sex;
     private String driverCertificateNumber;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "carOwner")
-    private Car car;
+    @OneToMany(mappedBy = "carOwner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Car> car;
 
-    public CarOwner(String fullName, String address, String dateOfBirth, String sex, String driverCertificateNumber) {
-        this.fullName = fullName;
+    public CarOwner(String name, String surname, String secondName, String address,
+                    String dateOfBirth, String sex, String driverCertificateNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.secondName = secondName;
         this.address = address;
         this.dateOfBirth = dateOfBirth;
         this.sex = sex;
@@ -41,12 +45,28 @@ public class CarOwner {
         this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 
     public String getAddress() {
@@ -81,11 +101,29 @@ public class CarOwner {
         this.driverCertificateNumber = driverCertificateNumber;
     }
 
-    public Car getCar() {
+    public String getSex() {
+        return sex;
+    }
+
+    public List<Car> getCar() {
         return car;
     }
 
-    public void setCar(Car car) {
+    public void setCar(List<Car> car) {
         this.car = car;
+    }
+
+    @Override
+    public String toString() {
+        return "CarOwner{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", address='" + address + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", sex='" + sex + '\'' +
+                ", driverCertificateNumber='" + driverCertificateNumber + '\'' +
+                '}';
     }
 }

@@ -13,19 +13,21 @@ public class Inspector {
     @GeneratedValue
     private int id;
 
-    private String fullName;
+    private String name;
+    private String surname;
+    private String secondName;
     private String job;
     private String rank;
 
     @OneToMany(mappedBy = "inspector", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CarInspection> carInspectionsList;
 
-    public Inspector(int id, String fullName, String job, String rank, List<CarInspection> carInspectionsList) {
-        this.id = id;
-        this.fullName = fullName;
+    public Inspector(String name, String surname, String secondName, String job, String rank) {
+        this.name = name;
+        this.surname = surname;
+        this.secondName = secondName;
         this.job = job;
         this.rank = rank;
-        this.carInspectionsList = carInspectionsList;
     }
 
     public Inspector() {
@@ -39,12 +41,28 @@ public class Inspector {
         this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 
     public String getJob() {

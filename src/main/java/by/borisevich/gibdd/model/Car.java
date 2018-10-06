@@ -18,7 +18,7 @@ public class Car {
     private String model;
     private String techPassportNumber;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     private CarOwner carOwner;
 
@@ -110,7 +110,6 @@ public class Car {
     public void setCarInspections(List<CarInspection> carInspections) {
         this.carInspections = carInspections;
     }
-
 
     @Override
     public String toString() {

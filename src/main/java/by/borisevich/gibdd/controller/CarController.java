@@ -1,22 +1,36 @@
 package by.borisevich.gibdd.controller;
 
-import by.borisevich.gibdd.dao.impl.CarDaoImpl;
+import by.borisevich.gibdd.dao.CarDao;
 import by.borisevich.gibdd.model.Car;
 
-import java.util.Date;
 import java.util.List;
 
-public interface CarController {
+public class CarController {
 
-    public void addCar(Car car);
+    private CarDao carDao = new CarDao();
 
-    public Car getCarByStateNumber(String stateNumber);
 
-    public List<Car> getCarsListOfPeriod(String startDate, String endDate);
+    public void addCar(Car car) {
+        carDao.addCar(car);
+    }
 
-    public void deleteCar(String motorNumber);
+    public Car getCarByStateNumber(String stateNumber) {
+        return carDao.getCarByStateNumber(stateNumber);
+    }
 
-    public void updateCar(Car car);
+    public List<Car> getCarsListOfPeriod(String startDate, String endDate) {
+        return carDao.getCarsListOfPeriod(startDate, endDate);
+    }
 
-    public Car getCarByMotorNumber(String motorNumber);
+    public void deleteCar(String motorNumber) {
+        carDao.deleteCar(motorNumber);
+    }
+
+    public void updateCar(Car car) {
+        carDao.updateCar(car);
+    }
+
+    public Car getCarByMotorNumber(String motorNumber) {
+        return carDao.getCarByMotorNumber(motorNumber);
+    }
 }

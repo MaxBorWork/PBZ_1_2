@@ -13,7 +13,7 @@ public class CarInspection {
     @GeneratedValue
     private int id;
 
-    private Date dateOfInspection;
+    private String dateOfInspection;
     private String resultOfInspection;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -24,7 +24,7 @@ public class CarInspection {
     @JoinColumn(name = "inspector_id")
     private Inspector inspector;
 
-    public CarInspection(Date dateOfInspection, String resultOfInspection) {
+    public CarInspection(String dateOfInspection, String resultOfInspection) {
         this.dateOfInspection = dateOfInspection;
         this.resultOfInspection = resultOfInspection;
     }
@@ -40,11 +40,11 @@ public class CarInspection {
         this.id = id;
     }
 
-    public Date getDateOfInspection() {
+    public String getDateOfInspection() {
         return dateOfInspection;
     }
 
-    public void setDateOfInspection(Date dateOfInspection) {
+    public void setDateOfInspection(String dateOfInspection) {
         this.dateOfInspection = dateOfInspection;
     }
 
