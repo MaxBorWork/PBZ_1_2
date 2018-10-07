@@ -12,16 +12,18 @@ public class CarInspection {
     @Column(name = "inspection_id")
     @GeneratedValue
     private int id;
+    private int inspector_id;
+    private int car_id;
 
     private String dateOfInspection;
     private String resultOfInspection;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "car_id")
+    @JoinColumn(name = "car_id", insertable=false, updatable=false)
     private Car car;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "inspector_id")
+    @JoinColumn(name = "inspector_id", insertable=false, updatable=false)
     private Inspector inspector;
 
     public CarInspection(String dateOfInspection, String resultOfInspection) {
@@ -70,5 +72,21 @@ public class CarInspection {
 
     public void setInspector(Inspector inspector) {
         this.inspector = inspector;
+    }
+
+    public int getInspector_id() {
+        return inspector_id;
+    }
+
+    public void setInspector_id(int inspector_id) {
+        this.inspector_id = inspector_id;
+    }
+
+    public int getCar_id() {
+        return car_id;
+    }
+
+    public void setCar_id(int car_id) {
+        this.car_id = car_id;
     }
 }

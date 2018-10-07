@@ -14,16 +14,27 @@ public class CarInspectionController {
         carInspectionDao.addInspection(carInspection);
     }
 
+    public void addInspectionAndCar(CarInspection carInspection) {
+        carInspectionDao.addInspectionAndCar(carInspection);
+    }
+
     public List<CarInspection> getInspectionsListForTheCar(String motorNumber) {
         return carInspectionDao.getInspectionsListForTheCar(motorNumber);
     }
 
-    public List<CarInspection> getInspectionsListForTheInspector(Inspector inspector) {
-        return carInspectionDao.getInspectionsListForTheInspector(inspector);
+    public List<CarInspection> getInspectionsListForTheInspector(String surname) {
+        return carInspectionDao.getInspectionsListForTheInspector(surname);
     }
 
-    public void deleteInspectionByCarAndDate(String motorNumber, String date) {
-        carInspectionDao.deleteInspectionByCarAndDate(motorNumber, date);
+    public CarInspection getInspectionByMotorNumberAndDate(String motorNumber, String date) {
+        return carInspectionDao.getInspectionByMotorNumberAndDate(motorNumber, date);
     }
 
+    public void updateInspection(CarInspection carInspection) {
+        carInspectionDao.updateInspection(carInspection);
+    }
+
+    public void deleteInspectionByMotorNumberAndDate(String motorNumber, String date) {
+        carInspectionDao.deleteInspectionByMotorNumberAndDate(motorNumber, date);
+    }
 }

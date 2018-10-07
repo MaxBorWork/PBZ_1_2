@@ -2,26 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18afa8fe-6edd-4c60-968f-ac0a15765253" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c78b63cb-a874-434e-af59-22d0d8662ee8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c78b63cb-a874-434e-af59-22d0d8662ee8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/controllerImpl/CarControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarInspectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarInspectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/InspectorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/InspectorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarInspectionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarInspectionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/impl/CarDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/impl/CarInspectionDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/InspectorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/InspectorDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/CarInspection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/CarInspection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/CarOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/CarOwner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/Inspector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/Inspector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/controller/CarController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/controller/controllerImpl/CarControllerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/dao/CarDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/dao/CarInspectionDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/dao/impl/CarDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/model/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/model/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/model/CarOwner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/borisevich/gibdd/model/CarOwner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarInspectionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarInspectionView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/InspectorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/InspectorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/MainWindow.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,6 +24,11 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/lab2$Main.ic" NAME="Main Coverage Results" MODIFIED="1538924808015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>by.borisevich.gibdd.*</FILTER>
+    </SUITE>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -77,7 +76,7 @@
         <item name="hibernate.cfg.xml/Hibernate" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="pbz2: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="CarOwner: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="Inspector: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -86,51 +85,58 @@
     <session id="319036985">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="16" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4394" />
-          <entry key="sql" value="57" />
-          <entry key="txt" value="30" />
+          <entry key="java" value="8083" />
+          <entry key="md" value="2" />
+          <entry key="sql" value="62" />
+          <entry key="txt" value="39" />
           <entry key="xml" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4394" />
-          <entry key="PLAIN_TEXT" value="30" />
-          <entry key="SQL" value="57" />
+          <entry key="JAVA" value="8083" />
+          <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="39" />
+          <entry key="SQL" value="62" />
           <entry key="XML" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Car" value="1" />
-          <entry key="class" value="2" />
-          <entry key="java" value="68" />
+          <entry key="Inspector" value="1" />
+          <entry key="class" value="9" />
+          <entry key="java" value="131" />
+          <entry key="md" value="2" />
           <entry key="xml" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="2" />
-          <entry key="Database Element" value="1" />
-          <entry key="JAVA" value="68" />
+          <entry key="CLASS" value="9" />
+          <entry key="Database Element" value="2" />
+          <entry key="JAVA" value="131" />
+          <entry key="Markdown" value="2" />
           <entry key="XML" value="10" />
         </counts>
       </usages-collector>
@@ -141,18 +147,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2420">
-              <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
+            <state relative-caret-position="469">
+              <caret line="168" column="59" selection-start-line="168" selection-start-column="59" selection-end-line="168" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1721#1874#0" expanded="true" />
-                <element signature="e#1873#1874#0" expanded="true" />
-                <element signature="e#2412#2582#0" expanded="true" />
-                <element signature="e#2581#2582#0" expanded="true" />
-                <element signature="e#4221#4222#0" expanded="true" />
-                <element signature="e#4251#4252#0" expanded="true" />
-                <element signature="e#4282#4283#0" expanded="true" />
-                <element signature="e#4310#4311#0" expanded="true" />
+                <element signature="e#2147#2313#0" expanded="true" />
+                <element signature="e#2312#2313#0" expanded="true" />
+                <element signature="e#2459#2625#0" expanded="true" />
+                <element signature="e#2624#2625#0" expanded="true" />
+                <element signature="e#3301#3484#0" expanded="true" />
+                <element signature="e#3483#3484#0" expanded="true" />
+                <element signature="e#3670#3853#0" expanded="true" />
+                <element signature="e#3852#3853#0" expanded="true" />
+                <element signature="e#4157#4337#0" expanded="true" />
+                <element signature="e#4336#4337#0" expanded="true" />
+                <element signature="e#4514#4692#0" expanded="true" />
+                <element signature="e#4691#4692#0" expanded="true" />
+                <element signature="e#4874#5052#0" expanded="true" />
+                <element signature="e#5051#5052#0" expanded="true" />
+                <element signature="e#5695#5882#0" expanded="true" />
+                <element signature="e#5881#5882#0" expanded="true" />
+                <element signature="e#6087#6278#0" expanded="true" />
+                <element signature="e#6277#6278#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,26 +177,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarInspectionDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="54" column="77" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="77" />
+            <state relative-caret-position="440">
+              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarInspectionView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#599#600#0" expanded="true" />
-                <element signature="e#643#644#0" expanded="true" />
-                <element signature="e#2331#2634#0" expanded="true" />
-                <element signature="e#2633#2634#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -189,14 +189,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+            <state relative-caret-position="212">
+              <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#600#601#0" expanded="true" />
-                <element signature="e#643#644#0" expanded="true" />
-                <element signature="e#3659#3962#0" expanded="true" />
-                <element signature="e#3961#3962#0" expanded="true" />
+                <element signature="e#8631#9817#0" expanded="true" />
+                <element signature="e#9816#9817#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/InspectorView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5187#5823#0" expanded="true" />
+                <element signature="e#5822#5823#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarInspectionView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1004">
+              <caret line="228" lean-forward="true" selection-start-line="228" selection-end-line="228" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#13886#14435#0" expanded="true" />
+                <element signature="e#14434#14435#0" expanded="true" />
+                <element signature="e#14661#17208#0" expanded="true" />
+                <element signature="e#17207#17208#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -213,6 +241,16 @@
     </option>
   </component>
   <component name="FindInProjectRecents">
+    <findStrings>
+      <find>addСarDialog</find>
+      <find>addCarDialog</find>
+      <find>shell</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>shell</replace>
+      <replace>addCarDialog</replace>
+      <replace>noInspectionCarDialog</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java</dir>
     </dirStrings>
@@ -229,11 +267,9 @@
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/Ma.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/MySqlConnectiion.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarConnectiion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/controllerImpl/CarControllerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/impl/CarInspectionImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.xml" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/impl/CarDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/impl/CarInspectionDaoImpl.java" />
@@ -242,16 +278,21 @@
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/CarOwner.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/Car.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/InspectorDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarController.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/CarInspection.java" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/Inspector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/CarInspection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/InspectorDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/InspectorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarInspectionDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarInspectionController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/InspectorDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/InspectorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarView.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarInspectionView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/InspectorView.java" />
       </list>
     </option>
   </component>
@@ -282,9 +323,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -354,25 +392,21 @@
               <item name="gibdd" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="lab2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lab2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538855555373" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538856000951" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/java/TMS_final" />
+    <property name="last_opened_file_path" value="$USER_HOME$/hibernatedemo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -435,12 +469,15 @@
       <workItem from="1538675372972" duration="2619000" />
       <workItem from="1538727025127" duration="290000" />
       <workItem from="1538731245621" duration="10259000" />
-      <workItem from="1538845330139" duration="10089000" />
+      <workItem from="1538845330139" duration="10382000" />
+      <workItem from="1538894489933" duration="46000" />
+      <workItem from="1538908811849" duration="5000" />
+      <workItem from="1538914747623" duration="26695000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48408000" />
+    <option name="totallyTimeSpent" value="75447000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="81" y="-5" width="1839" height="1085" extended-state="6" />
@@ -451,7 +488,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.25911385" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.22041503" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" />
@@ -461,17 +498,18 @@
       <window_info anchor="bottom" id="Find" order="4" weight="0.32938644" />
       <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.3110872" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.39935413" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.41442412" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32938644" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32938644" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32978126" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
-      <window_info anchor="right" id="Database" order="3" weight="0.21536736" />
+      <window_info anchor="right" id="Database" order="3" weight="0.30622545" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
@@ -489,16 +527,39 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarDao.java</url>
-          <line>64</line>
+          <url>file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarInspectionView.java</url>
+          <line>151</line>
           <properties />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarInspectionView.java</url>
+          <line>150</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarInspectionView.java</url>
+          <line>164</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarInspectionView.java</url>
+          <line>165</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarDao.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarInspectionDao.java" />
     <entry file="das://c78b63cb-a874-434e-af59-22d0d8662ee8/schema/pbz2/table/Car">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -520,7 +581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarDao.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -535,197 +595,224 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarController.java" />
+    <entry file="file:///media/maksim/C8885833885821EC/Универ/2 курс/ППвИС/4sem/2lab/src/View/TableWithStudents.java" />
+    <entry file="file:///media/maksim/C8885833885821EC/Универ/2 курс/ППвИС/4sem/2lab/src/View/AddStudent.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/CarOwner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c78b63cb-a874-434e-af59-22d0d8662ee8/schema/pbz2/table/Inspector">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="396">
+            <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/swt.jar!/org/eclipse/swt/widgets/Text.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="907" selection-start-line="907" selection-end-line="907" />
+          <folding>
+            <element signature="e#34489#34490#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/FetchType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/swt.jar!/org/eclipse/swt/widgets/Display.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="4025" selection-start-line="4025" selection-end-line="4025" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/Inspector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/Car.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="121" column="70" selection-start-line="121" selection-start-column="70" selection-end-line="121" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="481">
+          <caret line="25" column="46" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.5.Final/hibernate-core-4.3.5.Final.jar!/org/hibernate/Session.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="90" column="26" lean-forward="true" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
+          <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/swt.jar!/org/eclipse/swt/widgets/EventTable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/InspectorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="193">
+          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="80" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/InspectorView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///media/maksim/C8885833885821EC/Универ/2 курс/ППвИС/4sem/2lab/src/View/TableWithStudents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2178">
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/CarOwner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1265#1266#0" expanded="true" />
-            <element signature="e#1297#1298#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/Inspector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="e#930#931#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
-            <element signature="e#997#998#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1063#1064#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1139#1140#0" expanded="true" />
-            <element signature="e#1177#1178#0" expanded="true" />
-            <element signature="e#1214#1215#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1343#1344#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/InspectorDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/InspectorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarInspectionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="428">
+          <caret line="53" column="8" lean-forward="true" selection-start-line="53" selection-start-column="8" selection-end-line="58" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
-            <element signature="e#355#356#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///media/maksim/C8885833885821EC/Универ/2 курс/ППвИС/4sem/2lab/src/View/AddStudent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="85" column="32" lean-forward="true" selection-start-line="69" selection-start-column="8" selection-end-line="85" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/model/CarInspection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#943#944#0" expanded="true" />
-            <element signature="e#1007#1008#0" expanded="true" />
-            <element signature="e#1063#1064#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="409">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/controller/CarInspectionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2420">
-          <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
+        <state relative-caret-position="469">
+          <caret line="168" column="59" selection-start-line="168" selection-start-column="59" selection-end-line="168" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1721#1874#0" expanded="true" />
-            <element signature="e#1873#1874#0" expanded="true" />
-            <element signature="e#2412#2582#0" expanded="true" />
-            <element signature="e#2581#2582#0" expanded="true" />
-            <element signature="e#4221#4222#0" expanded="true" />
-            <element signature="e#4251#4252#0" expanded="true" />
-            <element signature="e#4282#4283#0" expanded="true" />
-            <element signature="e#4310#4311#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarInspectionDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="54" column="77" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2147#2313#0" expanded="true" />
+            <element signature="e#2312#2313#0" expanded="true" />
+            <element signature="e#2459#2625#0" expanded="true" />
+            <element signature="e#2624#2625#0" expanded="true" />
+            <element signature="e#3301#3484#0" expanded="true" />
+            <element signature="e#3483#3484#0" expanded="true" />
+            <element signature="e#3670#3853#0" expanded="true" />
+            <element signature="e#3852#3853#0" expanded="true" />
+            <element signature="e#4157#4337#0" expanded="true" />
+            <element signature="e#4336#4337#0" expanded="true" />
+            <element signature="e#4514#4692#0" expanded="true" />
+            <element signature="e#4691#4692#0" expanded="true" />
+            <element signature="e#4874#5052#0" expanded="true" />
+            <element signature="e#5051#5052#0" expanded="true" />
+            <element signature="e#5695#5882#0" expanded="true" />
+            <element signature="e#5881#5882#0" expanded="true" />
+            <element signature="e#6087#6278#0" expanded="true" />
+            <element signature="e#6277#6278#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+        <state relative-caret-position="212">
+          <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#3659#3962#0" expanded="true" />
-            <element signature="e#3961#3962#0" expanded="true" />
+            <element signature="e#8631#9817#0" expanded="true" />
+            <element signature="e#9816#9817#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/InspectorView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5187#5823#0" expanded="true" />
+            <element signature="e#5822#5823#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/dao/CarInspectionDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/borisevich/gibdd/view/CarInspectionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="1004">
+          <caret line="228" lean-forward="true" selection-start-line="228" selection-end-line="228" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#2331#2634#0" expanded="true" />
-            <element signature="e#2633#2634#0" expanded="true" />
+            <element signature="e#13886#14435#0" expanded="true" />
+            <element signature="e#14434#14435#0" expanded="true" />
+            <element signature="e#14661#17208#0" expanded="true" />
+            <element signature="e#17207#17208#0" expanded="true" />
           </folding>
         </state>
       </provider>

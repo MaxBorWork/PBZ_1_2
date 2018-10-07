@@ -1007,106 +1007,143 @@
       <DataType>mediumtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="251" parent="235" name="PRIMARY">
+    <column id="251" parent="235" name="car_id">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="252" parent="235" name="inspector_id">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="253" parent="235" name="fk_car_id">
+      <ColNames>car_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="254" parent="235" name="fk_inspector_id">
+      <ColNames>inspector_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="255" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>inspection_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="252" parent="235" name="fk_car_id">
-      <ColNames>inspection_id</ColNames>
+    <foreign-key id="256" parent="235" name="fk_car_id">
+      <ColNames>car_id</ColNames>
       <RefSchemaName>pbz2</RefSchemaName>
       <RefTableName>Car</RefTableName>
       <RefColNames>car_id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="253" parent="235" name="fk_inspector_id">
-      <ColNames>inspection_id</ColNames>
+    <foreign-key id="257" parent="235" name="fk_inspector_id">
+      <ColNames>inspector_id</ColNames>
       <RefSchemaName>pbz2</RefSchemaName>
       <RefTableName>Inspector</RefTableName>
       <RefColNames>inspector_id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="254" parent="236" name="owner_id">
+    <column id="258" parent="236" name="owner_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="236" name="name">
+    <column id="259" parent="236" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="236" name="surname">
+    <column id="260" parent="236" name="surname">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="236" name="secondName">
+    <column id="261" parent="236" name="secondName">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="236" name="address">
+    <column id="262" parent="236" name="address">
       <Position>5</Position>
       <DataType>mediumtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="236" name="dateOfBirth">
+    <column id="263" parent="236" name="dateOfBirth">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="236" name="sex">
+    <column id="264" parent="236" name="sex">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="236" name="driverCertificateNumber">
+    <column id="265" parent="236" name="driverCertificateNumber">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="262" parent="236" name="PRIMARY">
+    <key id="266" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>owner_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="263" parent="237" name="inspector_id">
+    <column id="267" parent="237" name="inspector_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="237" name="fullName">
+    <column id="268" parent="237" name="secondName">
       <Position>2</Position>
-      <DataType>mediumtext|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="237" name="job">
+    <column id="269" parent="237" name="job">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="237" name="rank">
+    <column id="270" parent="237" name="rank">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="267" parent="237" name="PRIMARY">
+    <column id="271" parent="237" name="surname">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="272" parent="237" name="name">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="273" parent="237" name="Inspector_surname_uindex">
+      <ColNames>surname</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="274" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>inspector_id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="275" parent="237" name="Inspector_surname_uindex">
+      <ColNames>surname</ColNames>
+      <UnderlyingIndexName>Inspector_surname_uindex</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

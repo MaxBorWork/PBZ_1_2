@@ -2,6 +2,7 @@ package by.borisevich.gibdd.controller;
 
 import by.borisevich.gibdd.dao.CarDao;
 import by.borisevich.gibdd.model.Car;
+import by.borisevich.gibdd.model.CarInspection;
 
 import java.util.List;
 
