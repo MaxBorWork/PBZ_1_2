@@ -11,6 +11,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.*;
 
 import java.util.List;
@@ -26,8 +27,8 @@ public class CarInspectionView {
         this.mainWindow = mainWindow;
     }
 
-    void initCarInspectionTable() {
-        mainTable = new Table(mainWindow.getShell(), SWT.MULTI | SWT.BORDER |
+    private void initCarInspectionTable(Shell shell) {
+        mainTable = new Table(shell, SWT.MULTI | SWT.BORDER |
                 SWT.FULL_SELECTION | SWT.V_SCROLL | SWT.H_SCROLL);
         mainTable.setHeaderVisible(true);
         mainTable.setLinesVisible(true);
@@ -38,9 +39,9 @@ public class CarInspectionView {
 
         TableColumn resultColumn = new TableColumn(mainTable, SWT.NONE);
         resultColumn.setText("Результат");
-        resultColumn.setWidth(400);
+        resultColumn.setWidth(200);
 
-        mainTable.setLayoutData(new GridData(1500, 400));
+        mainTable.setLayoutData(new GridData(350, 200));
     }
 
     void addInspectionForm() {
@@ -161,10 +162,8 @@ public class CarInspectionView {
                             list.add(carInspection);
                             carInspection.setInspector(inspector);
                             carInspection.setInspector_id(inspector.getId());
-                            //carInspection.setCar_id(car.getId());
                             if (carInspection.getResultOfInspection() != null) {
                                 inspectionController.addInspectionAndCar(carInspection);
-                                //noInspectionCarDialog.close();
                             }
                         }
                     });
@@ -196,6 +195,7 @@ public class CarInspectionView {
                             CarInspection carInspection = new CarInspection(enterDateText.getText(),
                                     enterResultText.getText());
                             carInspection.setCar(foundCar);
+                            carInspection.setCar_id(foundCar.getId());
                             carInspection.setInspector(inspector);
                             carInspection.setInspector_id(inspector.getId());
                             if (carInspection.getResultOfInspection() != null) {
@@ -206,7 +206,6 @@ public class CarInspectionView {
                     hasInspectionCarDialog.setSize(1200 , 500);
                     hasInspectionCarDialog.open();
                 }
-                //addInspectionDialog.close();
             }
         });
         addInspectionDialog.setSize(500 , 400);
@@ -216,12 +215,14 @@ public class CarInspectionView {
     void showInspectionsForTheCar() {
         final Shell showInspectionDialog = new Shell(mainWindow.getDisplay(), SWT.DIALOG_TRIM);
         showInspectionDialog.setText("Поиск осмотров машины");
-        mainWindow.initLayout(showInspectionDialog, 2);
+        mainWindow.initLayout(showInspectionDialog, 1);
+        initCarInspectionTable(showInspectionDialog);
 
         Composite carMotorNumber = new Composite(showInspectionDialog, SWT.NONE);
+        carMotorNumber.setLayout(new GridLayout(2, false));
         Label carMotorNumberLabel = new Label(carMotorNumber, SWT.NONE);
         final Text carMotorNumberText = mainWindow.createTextField(carMotorNumber, carMotorNumberLabel,
-                "номер двигателя", showInspectionDialog, showInspectionDialog.getLayout());
+                "номер двигателя", showInspectionDialog, carMotorNumber.getLayout());
 
         Button showInspectionsButton = new Button(showInspectionDialog, SWT.PUSH);
         showInspectionsButton.setText("Найти");
@@ -231,6 +232,7 @@ public class CarInspectionView {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 List<CarInspection> carList = inspectionController.getInspectionsListForTheCar(carMotorNumberText.getText());
+
                 for (CarInspection inspection : carList) {
                     TableItem item = new TableItem(mainTable, SWT.NONE);
                     item.setText(0, inspection.getDateOfInspection());
@@ -239,7 +241,7 @@ public class CarInspectionView {
             }
         });
 
-        showInspectionDialog.setSize(500 , 400);
+        showInspectionDialog.setSize(370 , 400);
         showInspectionDialog.open();
     }
 
@@ -268,23 +270,22 @@ public class CarInspectionView {
                 final CarInspection foundInspection = inspectionController.getInspectionByMotorNumberAndDate(
                                                                         carMotorNumberText.getText(),
                                                                         inspectionDateText.getText());
-                final Shell hasInspectionCarDialog = new Shell(mainWindow.getDisplay(), SWT.DIALOG_TRIM);
-                hasInspectionCarDialog.setText("Добавить осмотр");
-                mainWindow.initLayout(hasInspectionCarDialog, 4);
 
-                Composite enterDate = new Composite(hasInspectionCarDialog, SWT.NONE);
+                Composite enterDate = new Composite(updateInspectionDialog, SWT.NONE);
+                enterDate.setLayout(new GridLayout(2, false));
                 Label enterDateLabel = new Label(enterDate, SWT.NONE);
                 final Text enterDateText = mainWindow.createTextField(enterDate, enterDateLabel,
-                        "дату", hasInspectionCarDialog, hasInspectionCarDialog.getLayout());
+                        "дату", updateInspectionDialog, enterDate.getLayout());
                 enterDateText.setText(foundInspection.getDateOfInspection());
 
-                Composite enterResult = new Composite(hasInspectionCarDialog, SWT.NONE);
+                Composite enterResult = new Composite(updateInspectionDialog, SWT.NONE);
+                enterResult.setLayout(new GridLayout(2, false));
                 Label enterResultLabel = new Label(enterResult, SWT.NONE);
                 final Text enterResultText = mainWindow.createTextField(enterResult, enterResultLabel,
-                        "результат", hasInspectionCarDialog, hasInspectionCarDialog.getLayout());
+                        "результат", updateInspectionDialog, enterResult.getLayout());
                 enterResultText.setText(foundInspection.getResultOfInspection());
 
-                Button okNewCarButton = new Button(hasInspectionCarDialog, SWT.PUSH);
+                Button okNewCarButton = new Button(updateInspectionDialog, SWT.PUSH);
                 okNewCarButton.setText("Добавить");
                 okNewCarButton.setSize(100, 150);
 
@@ -299,12 +300,10 @@ public class CarInspectionView {
                         carInspection.setInspector_id(foundInspection.getInspector_id());
                         if (carInspection.getResultOfInspection() != null) {
                             inspectionController.addInspection(carInspection);
-                            hasInspectionCarDialog.close();
                         }
                     }
                 });
-                hasInspectionCarDialog.setSize(800 , 500);
-                hasInspectionCarDialog.open();
+                updateInspectionDialog.layout();
             }
         });
 

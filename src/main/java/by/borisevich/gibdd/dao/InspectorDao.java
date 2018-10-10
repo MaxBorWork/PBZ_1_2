@@ -1,5 +1,6 @@
 package by.borisevich.gibdd.dao;
 
+import by.borisevich.gibdd.model.Car;
 import by.borisevich.gibdd.model.CarInspection;
 import by.borisevich.gibdd.model.Inspector;
 import by.borisevich.gibdd.util.HibernateSessionFactoryUtil;
@@ -8,6 +9,7 @@ import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InspectorDao {
@@ -22,16 +24,31 @@ public class InspectorDao {
         session.close();
     }
 
-    public List<Inspector> getInspectionsListForTheDate(String date) {
+    public List<Inspector> getInspectorsListForTheDate(String date) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("from Inspector LEFT JOIN FETCH " +
-                "CarInspection.carInspections AS inspections " +
-                "WHERE inspections.dateOfInspection = :date");
+        Query query = session.createQuery("from Inspector inspector INNER JOIN " +
+                "inspector.carInspectionsList inspection " +
+                "WHERE inspection.dateOfInspection = :date");
         query.setParameter("date", date);
-        List<Inspector> inspectors = (List<Inspector>) query.list();
-        if (inspectors.size() == 0) {
+        List list = query.list();
+        if (list.size() == 0) {
             logger.info("request set is empty");
             return null;
+        }
+        List<Inspector> inspectors = new ArrayList<Inspector>();
+        for (Object aList : list) {
+            Object[] inspectorArr = (Object[]) aList;
+            Inspector inspector = (Inspector) inspectorArr[0];
+
+            if (inspector != null && !inspectors.contains(inspector)) {
+                for (CarInspection inspection : inspector.getCarInspectionsList()) {
+                    Query carQuery = session.createQuery("FROM Car WHERE car_id =:car_id");
+                    carQuery.setParameter("car_id", inspection.getCar_id());
+                    Car car = (Car) carQuery.uniqueResult();
+                    inspection.setCar(car);
+                }
+                inspectors.add(inspector);
+            }
         }
         session.close();
         return inspectors;

@@ -3,6 +3,7 @@ package by.borisevich.gibdd.controller;
 import by.borisevich.gibdd.dao.CarDao;
 import by.borisevich.gibdd.model.Car;
 import by.borisevich.gibdd.model.CarInspection;
+import by.borisevich.gibdd.model.CarOwner;
 
 import java.util.List;
 
@@ -33,5 +34,9 @@ public class CarController {
 
     public Car getCarByMotorNumber(String motorNumber) {
         return carDao.getCarByMotorNumber(motorNumber);
+    }
+
+    public CarOwner getCarOwnerBySurname(String surname) {
+        return carDao.getCarOwnerBySurname(surname);
     }
 }

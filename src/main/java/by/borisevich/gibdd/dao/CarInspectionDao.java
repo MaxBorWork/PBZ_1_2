@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarInspectionDao {
@@ -37,13 +38,21 @@ public class CarInspectionDao {
 
     public List<CarInspection> getInspectionsListForTheCar(String motorNumber) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Query inspectionsQuery = session.createQuery("from Car INNER JOIN Car.carInspections WHERE " +
-                        "Car.motorNumber = :motorNumber");
+        Query inspectionsQuery = session.createQuery("from CarInspection inspection INNER JOIN inspection.car car " +
+                        "WHERE car.motorNumber = :motorNumber");
         inspectionsQuery.setParameter("motorNumber", motorNumber);
-        List<CarInspection> inspections = (List<CarInspection>) inspectionsQuery.list();
-        if (inspections.size() == 0) {
+        List list = inspectionsQuery.list();
+        if (list.size() == 0) {
             logger.info("request set is empty");
             return null;
+        }
+        List<CarInspection> inspections = new ArrayList<CarInspection>();
+        for (Object aList : list) {
+            Object[] inspectionArr = (Object[]) aList;
+            CarInspection inspection = (CarInspection) inspectionArr[0];
+            if (inspection != null) {
+                inspections.add(inspection);
+            }
         }
         session.close();
         return inspections;

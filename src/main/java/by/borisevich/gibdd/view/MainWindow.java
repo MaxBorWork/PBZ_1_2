@@ -20,8 +20,8 @@ public class MainWindow {
         carView = new CarView(this);
         carInspectionView = new CarInspectionView(this);
         inspectorView = new InspectorView(this);
-        shell.setText("Кулинарная книга");
-        shell.setSize(1400, 900);
+        shell.setText("Excel (ГИБДД)");
+        shell.setSize(500, 400);
 
         initLayout(shell, 2);
         initMenuBar();
@@ -148,7 +148,7 @@ public class MainWindow {
         carsByDatesItem.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-
+                carView.showCars();
             }
         });
 

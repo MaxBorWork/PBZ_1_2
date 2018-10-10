@@ -24,17 +24,6 @@ public class Car {
 
     @OneToMany(mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CarInspection> carInspections;
-//
-//    public Car(String stateNumber, String motorNumber, String color, String model,
-//               String techPassportNumber, CarOwner carOwner, List<CarInspection> carInspections) {
-//        this.stateNumber = stateNumber;
-//        this.motorNumber = motorNumber;
-//        this.color = color;
-//        this.model = model;
-//        this.techPassportNumber = techPassportNumber;
-//        this.carOwner = carOwner;
-//        this.carInspections = carInspections;
-//    }
 
     public Car(String stateNumber, String motorNumber, String color, String model, String techPassportNumber) {
         this.stateNumber = stateNumber;

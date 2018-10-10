@@ -4,11 +4,13 @@ import by.borisevich.gibdd.model.Car;
 import by.borisevich.gibdd.model.CarInspection;
 import by.borisevich.gibdd.model.CarOwner;
 import by.borisevich.gibdd.util.HibernateSessionFactoryUtil;
+import org.eclipse.swt.internal.C;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarDao {
@@ -39,15 +41,23 @@ public class CarDao {
 
     public List<Car> getCarsListOfPeriod(String startDate, String endDate) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("FROM Car INNER JOIN CarInspection ON " +
-                "car_id = inspection_id WHERE CarInspection.dateOfInspection " +
+        Query query = session.createQuery("FROM Car car INNER JOIN car.carInspections inspection " +
+                "WHERE inspection.dateOfInspection " +
                 "BETWEEN :startParam AND :endParam");
         query.setParameter("startParam", startDate);
         query.setParameter("endParam", endDate);
-        List<Car> cars = (List<Car>) query.list();
-        if (cars.size() == 0) {
+        List list = query.list();
+        if (list.size() == 0) {
             logger.info("request set is empty");
             return null;
+        }
+        List<Car> cars = new ArrayList<Car>();
+        for (Object aList : list) {
+            Object[] carArr = (Object[]) aList;
+            Car car = (Car) carArr[0];
+            if (car != null && !cars.contains(car)) {
+                cars.add(car);
+            }
         }
         return cars;
     }
@@ -97,6 +107,21 @@ public class CarDao {
         car.setCarOwner(carOwner);
         session.close();
         return car;
+    }
+
+    public CarOwner getCarOwnerBySurname(String surname) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Query inspectionsQuery = session.createQuery("FROM CarOwner " +
+                "where surname =:surname");
+        inspectionsQuery.setParameter("surname", surname);
+        CarOwner owner = (CarOwner) inspectionsQuery.uniqueResult();
+        if (owner == null) {
+            logger.info("request set is empty");
+            return null;
+        }
+        logger.info("was found oner with surname: " + surname);
+        session.close();
+        return owner;
     }
 
     public void addCarOwner(CarOwner carOwner) {

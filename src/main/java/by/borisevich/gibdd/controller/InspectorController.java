@@ -13,8 +13,8 @@ public class InspectorController {
         inspectorDao.addInspector(inspector);
     }
 
-    public List<Inspector> getInspectionsListForTheDate(String date) {
-        return inspectorDao.getInspectionsListForTheDate(date);
+    public List<Inspector> getInspectorsListForTheDate(String date) {
+        return inspectorDao.getInspectorsListForTheDate(date);
     }
 
     public Inspector getInspectorBySurname(String surname) {

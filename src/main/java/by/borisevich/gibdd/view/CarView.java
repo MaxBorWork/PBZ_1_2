@@ -8,8 +8,14 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.List;
 
 public class CarView {
@@ -21,35 +27,35 @@ public class CarView {
         this.mainWindow = mainWindow;
     }
 
-    void initCarTable() {
-        mainTable = new Table(mainWindow.getShell(), SWT.MULTI | SWT.BORDER |
+    private void initCarTable(Shell shell) {
+        mainTable = new Table(shell, SWT.MULTI | SWT.BORDER |
                 SWT.FULL_SELECTION | SWT.V_SCROLL | SWT.H_SCROLL);
         mainTable.setHeaderVisible(true);
         mainTable.setLinesVisible(true);
 
         TableColumn stateNumColumn = new TableColumn(mainTable, SWT.NONE);
         stateNumColumn.setText("Госномер");
-        stateNumColumn.setWidth(150);
+        stateNumColumn.setWidth(50);
 
         TableColumn engineNumColumn = new TableColumn(mainTable, SWT.NONE);
         engineNumColumn.setText("Номер двигателя");
-        engineNumColumn.setWidth(250);
+        engineNumColumn.setWidth(50);
 
         TableColumn colorColumn = new TableColumn(mainTable, SWT.NONE);
         colorColumn.setText("Цвет");
-        colorColumn.setWidth(250);
+        colorColumn.setWidth(50);
 
         TableColumn modelColumn = new TableColumn(mainTable, SWT.NONE);
         modelColumn.setText("Марка");
-        modelColumn.setWidth(150);
+        modelColumn.setWidth(100);
 
         TableColumn techPassNumColumn = new TableColumn(mainTable, SWT.NONE);
         techPassNumColumn.setText("Номер тех паспорта");
-        techPassNumColumn.setWidth(150);
+        techPassNumColumn.setWidth(50);
 
         TableColumn driverCertNumColumn = new TableColumn(mainTable, SWT.NONE);
         driverCertNumColumn.setText("Номер водительского удостоверения");
-        driverCertNumColumn.setWidth(150);
+        driverCertNumColumn.setWidth(100);
 
         TableColumn driverFullNameColumn = new TableColumn(mainTable, SWT.NONE);
         driverFullNameColumn.setText("ФИО владельца");
@@ -57,17 +63,17 @@ public class CarView {
 
         TableColumn driverAddressColumn = new TableColumn(mainTable, SWT.NONE);
         driverAddressColumn.setText("Адрес владельца");
-        driverAddressColumn.setWidth(150);
+        driverAddressColumn.setWidth(100);
 
         TableColumn driverDateOfBirthColumn = new TableColumn(mainTable, SWT.NONE);
         driverDateOfBirthColumn.setText("Дата рожения владельца");
-        driverDateOfBirthColumn.setWidth(150);
+        driverDateOfBirthColumn.setWidth(100);
 
         TableColumn driverSexColumn = new TableColumn(mainTable, SWT.NONE);
-        driverSexColumn.setText("Пол владельца");
-        driverSexColumn.setWidth(150);
+        driverSexColumn.setText("Пол");
+        driverSexColumn.setWidth(50);
 
-        mainTable.setLayoutData(new GridData(1500, 400));
+        mainTable.setLayoutData(new GridData(800, 300));
     }
 
     void addCarForm() {
@@ -75,83 +81,165 @@ public class CarView {
         addCarDialog.setText("Добавление машины");
         mainWindow.initLayout(addCarDialog, 2);
 
-        Composite stateNum = new Composite(addCarDialog, SWT.NONE);
-        Label stateNumLabel = new Label(stateNum, SWT.NONE);
-        final Text stateNumText = mainWindow.createTextField(stateNum, stateNumLabel,
-                "госномер", addCarDialog, addCarDialog.getLayout());
-
-        Composite motorNum = new Composite(addCarDialog, SWT.NONE);
-        Label motorNumLabel = new Label(motorNum, SWT.NONE);
-        final Text motorNumText = mainWindow.createTextField(motorNum, motorNumLabel,
-                "двигатель", addCarDialog, addCarDialog.getLayout());
-
-        Composite color = new Composite(addCarDialog, SWT.NONE);
-        Label colorLabel = new Label(color, SWT.NONE);
-        final Text colorText = mainWindow.createTextField(color, colorLabel,
-                "цвет", addCarDialog, addCarDialog.getLayout());
-
-        Composite model = new Composite(addCarDialog, SWT.NONE);
-        Label modelLabel = new Label(model, SWT.NONE);
-        final Text modelText = mainWindow.createTextField(model, modelLabel,
-                "марку", addCarDialog, addCarDialog.getLayout());
-
-        Composite techPassNum = new Composite(addCarDialog, SWT.NONE);
-        Label techPassNumLabel = new Label(techPassNum, SWT.NONE);
-        final Text techPassNumText = mainWindow.createTextField(techPassNum, techPassNumLabel,
-                "техпаспорт", addCarDialog, addCarDialog.getLayout());
-
-        Composite driverCertNum = new Composite(addCarDialog, SWT.NONE);
-        Label driverCertNumLabel = new Label(driverCertNum, SWT.NONE);
-        final Text driverCertNumText = mainWindow.createTextField(driverCertNum, driverCertNumLabel,
-                "удостоверение", addCarDialog, addCarDialog.getLayout());
-
-        Composite driverName = new Composite(addCarDialog, SWT.NONE);
-        Label driverNameLabel = new Label(driverName, SWT.NONE);
-        final Text driverNameText = mainWindow.createTextField(driverName, driverNameLabel,
-                "имя",addCarDialog, addCarDialog.getLayout());
-
         Composite driverSurname = new Composite(addCarDialog, SWT.NONE);
+        driverSurname.setLayout(new GridLayout(2, false));
         Label driverSurnameLabel = new Label(driverSurname, SWT.NONE);
         final Text driverSurnameText = mainWindow.createTextField(driverSurname, driverSurnameLabel,
-                "фамилию", addCarDialog, addCarDialog.getLayout());
+                "фамилию владельца", addCarDialog, driverSurname.getLayout());
 
-        Composite driverSecondName = new Composite(addCarDialog, SWT.NONE);
-        Label driverSecondNameLabel = new Label(driverSecondName, SWT.NONE);
-        final Text driverSecondNameText = mainWindow.createTextField(driverSecondName, driverSecondNameLabel,
-                "отчество", addCarDialog, addCarDialog.getLayout());
+        Button hasCarOwnerButton = new Button(addCarDialog, SWT.PUSH);
+        hasCarOwnerButton.setText("Проверить");
+        hasCarOwnerButton.setSize(100, 150);
 
-        Composite driverAddress = new Composite(addCarDialog, SWT.NONE);
-        Label driverAddressLabel = new Label(driverAddress, SWT.NONE);
-        final Text driverAddressText = mainWindow.createTextField(driverAddress, driverAddressLabel,
-                "адрес", addCarDialog, addCarDialog.getLayout());
-
-        Composite driverDateOfBirth = new Composite(addCarDialog, SWT.NONE);
-        Label driverDateOfBirthLabel = new Label(driverDateOfBirth, SWT.NONE);
-        final Text driverDateOfBirthText = mainWindow.createTextField(driverDateOfBirth, driverDateOfBirthLabel,
-                "дату рождения", addCarDialog, addCarDialog.getLayout());
-
-        Composite driverSex = new Composite(addCarDialog, SWT.NONE);
-        Label driverSexLabel = new Label(driverSex, SWT.NONE);
-        final Text driverSexText = mainWindow.createTextField(driverSex, driverSexLabel,
-                "пол", addCarDialog, addCarDialog.getLayout());
-
-        Button okButton = new Button(addCarDialog, SWT.PUSH);
-        okButton.setText("Добавить");
-        okButton.setSize(100, 150);
-
-        okButton.addSelectionListener(new SelectionAdapter() {
+        hasCarOwnerButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                Car car = new Car(stateNumText.getText(), motorNumText.getText(), colorText.getText(),
-                        modelText.getText(), techPassNumText.getText());
-                CarOwner carOwner = new CarOwner(driverNameText.getText(), driverSurnameText.getText(),
-                        driverSecondNameText.getText(), driverAddressText.getText(), driverDateOfBirthText.getText(),
-                        driverSexText.getText(), driverCertNumText.getText());
-                car.setCarOwner(carOwner);
-                if (car.getCarOwner().getSex() != null) {
-                    carController.addCar(car);
+                final CarOwner foundOwner = carController.getCarOwnerBySurname(driverSurnameText.getText());
+                if (foundOwner == null) {
+                    Composite stateNum = new Composite(addCarDialog, SWT.NONE);
+                    stateNum.setLayout(new GridLayout(2, false));
+                    Label stateNumLabel = new Label(stateNum, SWT.NONE);
+                    final Text stateNumText = mainWindow.createTextField(stateNum, stateNumLabel,
+                            "госномер", addCarDialog, stateNum.getLayout());
+
+                    Composite motorNum = new Composite(addCarDialog, SWT.NONE);
+                    motorNum.setLayout(new GridLayout(2, false));
+                    Label motorNumLabel = new Label(motorNum, SWT.NONE);
+                    final Text motorNumText = mainWindow.createTextField(motorNum, motorNumLabel,
+                            "двигатель", addCarDialog, motorNum.getLayout());
+
+                    Composite color = new Composite(addCarDialog, SWT.NONE);
+                    color.setLayout(new GridLayout(2, false));
+                    Label colorLabel = new Label(color, SWT.NONE);
+                    final Text colorText = mainWindow.createTextField(color, colorLabel,
+                            "цвет", addCarDialog, color.getLayout());
+
+                    Composite model = new Composite(addCarDialog, SWT.NONE);
+                    model.setLayout(new GridLayout(2, false));
+                    Label modelLabel = new Label(model, SWT.NONE);
+                    final Text modelText = mainWindow.createTextField(model, modelLabel,
+                            "марку", addCarDialog, model.getLayout());
+
+                    Composite techPassNum = new Composite(addCarDialog, SWT.NONE);
+                    techPassNum.setLayout(new GridLayout(2, false));
+                    Label techPassNumLabel = new Label(techPassNum, SWT.NONE);
+                    final Text techPassNumText = mainWindow.createTextField(techPassNum, techPassNumLabel,
+                            "техпаспорт", addCarDialog, techPassNum.getLayout());
+
+                    Composite driverCertNum = new Composite(addCarDialog, SWT.NONE);
+                    driverCertNum.setLayout(new GridLayout(2, false));
+                    Label driverCertNumLabel = new Label(driverCertNum, SWT.NONE);
+                    final Text driverCertNumText = mainWindow.createTextField(driverCertNum, driverCertNumLabel,
+                            "удостоверение", addCarDialog, driverCertNum.getLayout());
+
+                    Composite driverName = new Composite(addCarDialog, SWT.NONE);
+                    driverName.setLayout(new GridLayout(2, false));
+                    Label driverNameLabel = new Label(driverName, SWT.NONE);
+                    final Text driverNameText = mainWindow.createTextField(driverName, driverNameLabel,
+                            "имя",addCarDialog, driverName.getLayout());
+
+                    Composite driverSurname = new Composite(addCarDialog, SWT.NONE);
+                    driverSurname.setLayout(new GridLayout(2, false));
+                    Label driverSurnameLabel = new Label(driverSurname, SWT.NONE);
+                    final Text driverSurnameText = mainWindow.createTextField(driverSurname, driverSurnameLabel,
+                            "фамилию", addCarDialog, driverSurname.getLayout());
+
+                    Composite driverSecondName = new Composite(addCarDialog, SWT.NONE);
+                    driverSecondName.setLayout(new GridLayout(2, false));
+                    Label driverSecondNameLabel = new Label(driverSecondName, SWT.NONE);
+                    final Text driverSecondNameText = mainWindow.createTextField(driverSecondName, driverSecondNameLabel,
+                            "отчество", addCarDialog, driverSecondName.getLayout());
+
+                    Composite driverAddress = new Composite(addCarDialog, SWT.NONE);
+                    driverAddress.setLayout(new GridLayout(2, false));
+                    Label driverAddressLabel = new Label(driverAddress, SWT.NONE);
+                    final Text driverAddressText = mainWindow.createTextField(driverAddress, driverAddressLabel,
+                            "адрес", addCarDialog, driverAddress.getLayout());
+
+                    Composite driverDateOfBirth = new Composite(addCarDialog, SWT.NONE);
+                    driverDateOfBirth.setLayout(new GridLayout(2, false));
+                    Label driverDateOfBirthLabel = new Label(driverDateOfBirth, SWT.NONE);
+                    final Text driverDateOfBirthText = mainWindow.createTextField(driverDateOfBirth, driverDateOfBirthLabel,
+                            "дату рождения", addCarDialog, driverDateOfBirth.getLayout());
+
+                    Composite driverSex = new Composite(addCarDialog, SWT.NONE);
+                    driverSex.setLayout(new GridLayout(2, false));
+                    Label driverSexLabel = new Label(driverSex, SWT.NONE);
+                    final Text driverSexText = mainWindow.createTextField(driverSex, driverSexLabel,
+                            "пол", addCarDialog, driverSex.getLayout());
+
+                    Button okButton = new Button(addCarDialog, SWT.PUSH);
+                    okButton.setText("Добавить");
+                    okButton.setSize(100, 150);
+
+                    addCarDialog.layout();
+
+                    okButton.addSelectionListener(new SelectionAdapter() {
+                        @Override
+                        public void widgetSelected(SelectionEvent e) {
+                            Car car = new Car(stateNumText.getText(), motorNumText.getText(), colorText.getText(),
+                                    modelText.getText(), techPassNumText.getText());
+                            CarOwner carOwner = new CarOwner(driverNameText.getText(), driverSurnameText.getText(),
+                                    driverSecondNameText.getText(), driverAddressText.getText(), driverDateOfBirthText.getText(),
+                                    driverSexText.getText(), driverCertNumText.getText());
+                            car.setCarOwner(carOwner);
+                            if (car.getCarOwner().getSex() != null) {
+                                carController.addCar(car);
+                            }
+                            addCarDialog.close();
+                        }
+                    });
+
+                } else {
+                    Composite stateNum = new Composite(addCarDialog, SWT.NONE);
+                    stateNum.setLayout(new GridLayout(2, false));
+                    Label stateNumLabel = new Label(stateNum, SWT.NONE);
+                    final Text stateNumText = mainWindow.createTextField(stateNum, stateNumLabel,
+                            "госномер", addCarDialog, stateNum.getLayout());
+
+                    Composite motorNum = new Composite(addCarDialog, SWT.NONE);
+                    motorNum.setLayout(new GridLayout(2, false));
+                    Label motorNumLabel = new Label(motorNum, SWT.NONE);
+                    final Text motorNumText = mainWindow.createTextField(motorNum, motorNumLabel,
+                            "двигатель", addCarDialog, motorNum.getLayout());
+
+                    Composite color = new Composite(addCarDialog, SWT.NONE);
+                    color.setLayout(new GridLayout(2, false));
+                    Label colorLabel = new Label(color, SWT.NONE);
+                    final Text colorText = mainWindow.createTextField(color, colorLabel,
+                            "цвет", addCarDialog, color.getLayout());
+
+                    Composite model = new Composite(addCarDialog, SWT.NONE);
+                    model.setLayout(new GridLayout(2, false));
+                    Label modelLabel = new Label(model, SWT.NONE);
+                    final Text modelText = mainWindow.createTextField(model, modelLabel,
+                            "марку", addCarDialog, model.getLayout());
+
+                    Composite techPassNum = new Composite(addCarDialog, SWT.NONE);
+                    techPassNum.setLayout(new GridLayout(2, false));
+                    Label techPassNumLabel = new Label(techPassNum, SWT.NONE);
+                    final Text techPassNumText = mainWindow.createTextField(techPassNum, techPassNumLabel,
+                            "техпаспорт", addCarDialog, techPassNum.getLayout());
+
+                    Button okButton = new Button(addCarDialog, SWT.PUSH);
+                    okButton.setText("Добавить");
+                    okButton.setSize(100, 150);
+
+                    addCarDialog.layout();
+
+                    okButton.addSelectionListener(new SelectionAdapter() {
+                        @Override
+                        public void widgetSelected(SelectionEvent e) {
+                            Car car = new Car(stateNumText.getText(), motorNumText.getText(), colorText.getText(),
+                                    modelText.getText(), techPassNumText.getText());
+                            car.setCarOwner(foundOwner);
+                            if (car.getCarOwner().getSex() != null) {
+                                carController.addCar(car);
+                            }
+                            addCarDialog.close();
+                        }
+                    });
                 }
-                addCarDialog.close();
             }
         });
 
@@ -162,26 +250,48 @@ public class CarView {
     void showCars() {
         final Shell showCarsDialog = new Shell(mainWindow.getDisplay(), SWT.DIALOG_TRIM);
         showCarsDialog.setText("Поиск машин за промежуток");
-        mainWindow.initLayout(showCarsDialog, 2);
+        mainWindow.initLayout(showCarsDialog, 1);
+        initCarTable(showCarsDialog);
 
-        final Composite startDate = new Composite(showCarsDialog, SWT.NONE);
-        Label startDateLabel = new Label(startDate, SWT.NONE);
-        final Text startDateText = mainWindow.createTextField(startDate, startDateLabel,
-                "начальную дату", showCarsDialog, showCarsDialog.getLayout());
+        final Composite infoComposite = new Composite(showCarsDialog, SWT.NONE);
+        infoComposite.setLayout(new GridLayout(2, true));
 
-        final Composite endDate = new Composite(showCarsDialog, SWT.NONE);
-        Label endDateLabel = new Label(endDate, SWT.NONE);
-        final Text endDateText = mainWindow.createTextField(endDate, endDateLabel,
-                "конечную дату", showCarsDialog, showCarsDialog.getLayout());
+        final Composite inputDate = new Composite(infoComposite, SWT.NONE);
+        inputDate.setLayout(new GridLayout(2, false));
+        inputDate.setData(new GridData(400, 300));
+        Label startDateLabel = new Label(inputDate, SWT.NONE);
+        final Text startDateText = mainWindow.createTextField(inputDate, startDateLabel,
+                "начальную дату", showCarsDialog, inputDate.getLayout());
+
+        Label endDateLabel = new Label(inputDate, SWT.NONE);
+        final Text endDateText = mainWindow.createTextField(inputDate, endDateLabel,
+                "конечную дату", showCarsDialog, inputDate.getLayout());
 
         final Button showCarsButton = new Button(showCarsDialog, SWT.PUSH);
         showCarsButton.setText("Найти");
         showCarsButton.setSize(100, 150);
 
+        final Composite colOfCarsComposite = new Composite(infoComposite, SWT.NONE);
+        colOfCarsComposite.setLayout(new GridLayout(1, false));
+        colOfCarsComposite.setData(new GridData(400, 300));
+
+
         showCarsButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                List<Car> carList = carController.getCarsListOfPeriod(startDateText.getText(), endDateText.getText());
+                String startDateString = startDateText.getText();
+                String endDateString = endDateText.getText();
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                Date startDate = new Date();
+                Date endDate = new Date();
+                try {
+                    startDate = format.parse(startDateString);
+                    endDate = format.parse(endDateString);
+                } catch (ParseException e1) {
+                    System.out.println("Parse String to Date exception:" + e1);
+                }
+                Map<String, Integer> dateAndColMap = new HashMap<String, Integer>();
+                List<Car> carList = carController.getCarsListOfPeriod(startDateString, endDateString);
                 for (Car car : carList) {
                     TableItem item = new TableItem(mainTable, SWT.NONE);
                     item.setText(0, car.getStateNumber());
@@ -196,11 +306,42 @@ public class CarView {
                     item.setText(7, car.getCarOwner().getAddress());
                     item.setText(8, car.getCarOwner().getDateOfBirth());
                     item.setText(9, car.getCarOwner().getSex());
+
+                    for (CarInspection inspection : car.getCarInspections()) {
+                        Date inspectionDate = new Date();
+                        try {
+                            inspectionDate = format.parse(inspection.getDateOfInspection());
+                        } catch (ParseException e1) {
+                            System.out.println("Parse String to Date exception:" + e1);
+                        }
+                        Calendar inspectionCal = Calendar.getInstance();
+                        inspectionCal.setTime(inspectionDate);
+                        Calendar calStart = Calendar.getInstance();
+                        Calendar calEnd = Calendar.getInstance();
+                        calStart.setTime(startDate);
+                        calStart.add(Calendar.DAY_OF_MONTH, -1);
+                        calEnd.setTime(endDate);
+                        calEnd.add(Calendar.DAY_OF_MONTH, +1);
+                        if (calStart.before(inspectionCal) && calEnd.after(inspectionCal)) {
+                            if (dateAndColMap.get(inspection.getDateOfInspection()) != null) {
+                                dateAndColMap.put(inspection.getDateOfInspection(),
+                                        dateAndColMap.get(inspection.getDateOfInspection()) + 1);
+                            } else {
+                                dateAndColMap.put(inspection.getDateOfInspection(), 1);
+                            }
+                        }
+                    }
                 }
+
+                for (Map.Entry<String, Integer> entry : dateAndColMap.entrySet()) {
+                    final Label numForDateLabel = new Label(colOfCarsComposite, SWT.NONE);
+                    numForDateLabel.setText("Осмотров на " + entry.getKey() + " : " + entry.getValue() + "\n");
+                }
+                showCarsDialog.layout();
             }
         });
 
-        showCarsDialog.setSize(500 , 400);
+        showCarsDialog.setSize(820 , 650);
         showCarsDialog.open();
     }
 
@@ -222,77 +363,85 @@ public class CarView {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 final Car foundCar = carController.getCarByMotorNumber(carMotorNumberText.getText());
-                final Shell inputCarDialog = new Shell(mainWindow.getDisplay(), SWT.DIALOG_TRIM);
-                inputCarDialog.setText("Изменение информации машины");
-                mainWindow.initLayout(inputCarDialog, 4);
 
-                Composite stateNum = new Composite(inputCarDialog, SWT.NONE);
+                Composite stateNum = new Composite(updateCarDialog, SWT.NONE);
+                stateNum.setLayout(new GridLayout(2, false));
                 Label stateNumLabel = new Label(stateNum, SWT.NONE);
                 final Text stateNumText = mainWindow.createTextField(stateNum, stateNumLabel,
-                        "госномер", inputCarDialog, inputCarDialog.getLayout());
+                        "госномер", updateCarDialog, stateNum.getLayout());
                 stateNumText.setText(foundCar.getStateNumber());
 
-                Composite color = new Composite(inputCarDialog, SWT.NONE);
+                Composite color = new Composite(updateCarDialog, SWT.NONE);
+                color.setLayout(new GridLayout(2, false));
                 Label colorLabel = new Label(color, SWT.NONE);
                 final Text colorText = mainWindow.createTextField(color, colorLabel,
-                        "цвет", inputCarDialog, inputCarDialog.getLayout());
+                        "цвет", updateCarDialog, color.getLayout());
                 colorText.setText(foundCar.getColor());
 
-                Composite model = new Composite(inputCarDialog, SWT.NONE);
+                Composite model = new Composite(updateCarDialog, SWT.NONE);
+                model.setLayout(new GridLayout(2, false));
                 Label modelLabel = new Label(model, SWT.NONE);
                 final Text modelText = mainWindow.createTextField(model, modelLabel,
-                        "марку", inputCarDialog, inputCarDialog.getLayout());
+                        "марку", updateCarDialog, model.getLayout());
                 modelText.setText(foundCar.getModel());
 
-                Composite techPassNum = new Composite(inputCarDialog, SWT.NONE);
+                Composite techPassNum = new Composite(updateCarDialog, SWT.NONE);
+                techPassNum.setLayout(new GridLayout(2, false));
                 Label techPassNumLabel = new Label(techPassNum, SWT.NONE);
                 final Text techPassNumText = mainWindow.createTextField(techPassNum, techPassNumLabel,
-                        "техпаспорт", inputCarDialog, inputCarDialog.getLayout());
+                        "техпаспорт", updateCarDialog, techPassNum.getLayout());
                 techPassNumText.setText(foundCar.getTechPassportNumber());
 
-                Composite driverCertNum = new Composite(inputCarDialog, SWT.NONE);
+                Composite driverCertNum = new Composite(updateCarDialog, SWT.NONE);
+                driverCertNum.setLayout(new GridLayout(2, false));
                 Label driverCertNumLabel = new Label(driverCertNum, SWT.NONE);
                 final Text driverCertNumText = mainWindow.createTextField(driverCertNum, driverCertNumLabel,
-                        "удостоверение", inputCarDialog, inputCarDialog.getLayout());
+                        "удостоверение", updateCarDialog, driverCertNum.getLayout());
                 driverCertNumText.setText(foundCar.getCarOwner().getDriverCertificateNumber());
 
-                Composite driverName = new Composite(inputCarDialog, SWT.NONE);
+                Composite driverName = new Composite(updateCarDialog, SWT.NONE);
+                driverName.setLayout(new GridLayout(2, false));
                 Label driverNameLabel = new Label(driverName, SWT.NONE);
                 final Text driverNameText = mainWindow.createTextField(driverName, driverNameLabel,
-                        "имя",inputCarDialog, inputCarDialog.getLayout());
+                        "имя",updateCarDialog, driverName.getLayout());
                 driverNameText.setText(foundCar.getCarOwner().getName());
 
-                Composite driverSurname = new Composite(inputCarDialog, SWT.NONE);
+                Composite driverSurname = new Composite(updateCarDialog, SWT.NONE);
+                driverSurname.setLayout(new GridLayout(2, false));
                 Label driverSurnameLabel = new Label(driverSurname, SWT.NONE);
                 final Text driverSurnameText = mainWindow.createTextField(driverSurname, driverSurnameLabel,
-                        "фамилию", inputCarDialog, inputCarDialog.getLayout());
+                        "фамилию", updateCarDialog, driverSurname.getLayout());
                 driverSurnameText.setText(foundCar.getCarOwner().getSurname());
 
-                Composite driverSecondName = new Composite(inputCarDialog, SWT.NONE);
+                Composite driverSecondName = new Composite(updateCarDialog, SWT.NONE);
+                driverSecondName.setLayout(new GridLayout(2, false));
                 Label driverSecondNameLabel = new Label(driverSecondName, SWT.NONE);
                 final Text driverSecondNameText = mainWindow.createTextField(driverSecondName, driverSecondNameLabel,
-                        "отчество", inputCarDialog, inputCarDialog.getLayout());
+                        "отчество", updateCarDialog, driverSecondName.getLayout());
                 driverSecondNameText.setText(foundCar.getCarOwner().getSecondName());
 
-                Composite driverAddress = new Composite(inputCarDialog, SWT.NONE);
+                Composite driverAddress = new Composite(updateCarDialog, SWT.NONE);
+                driverAddress.setLayout(new GridLayout(2, false));
                 Label driverAddressLabel = new Label(driverAddress, SWT.NONE);
                 final Text driverAddressText = mainWindow.createTextField(driverAddress, driverAddressLabel,
-                        "адрес", inputCarDialog, inputCarDialog.getLayout());
+                        "адрес", updateCarDialog, driverAddress.getLayout());
                 driverAddressText.setText(foundCar.getCarOwner().getAddress());
 
-                Composite driverDateOfBirth = new Composite(inputCarDialog, SWT.NONE);
+                Composite driverDateOfBirth = new Composite(updateCarDialog, SWT.NONE);
+                driverDateOfBirth.setLayout(new GridLayout(2, false));
                 Label driverDateOfBirthLabel = new Label(driverDateOfBirth, SWT.NONE);
                 final Text driverDateOfBirthText = mainWindow.createTextField(driverDateOfBirth, driverDateOfBirthLabel,
-                        "дату рождения", inputCarDialog, inputCarDialog.getLayout());
+                        "дату рождения", updateCarDialog, driverDateOfBirth.getLayout());
                 driverDateOfBirthText.setText(foundCar.getCarOwner().getDateOfBirth());
 
-                Composite driverSex = new Composite(inputCarDialog, SWT.NONE);
+                Composite driverSex = new Composite(updateCarDialog, SWT.NONE);
+                driverSex.setLayout(new GridLayout(2, false));
                 Label driverSexLabel = new Label(driverSex, SWT.NONE);
                 final Text driverSexText = mainWindow.createTextField(driverSex, driverSexLabel,
-                        "пол", inputCarDialog, inputCarDialog.getLayout());
+                        "пол", updateCarDialog, driverSex.getLayout());
                 driverSexText.setText(foundCar.getCarOwner().getSex());
 
-                Button okButton = new Button(inputCarDialog, SWT.PUSH);
+                Button okButton = new Button(updateCarDialog, SWT.PUSH);
                 okButton.setText("Записать");
                 okButton.setSize(100, 150);
 
@@ -309,17 +458,14 @@ public class CarView {
                         car.setId(foundCar.getId());
                         if (car.getCarOwner().getSex() != null) {
                             carController.updateCar(car);
-                            inputCarDialog.close();
                         }
                     }
                 });
-                inputCarDialog.setSize(800 , 600);
-                inputCarDialog.open();
-
+                updateCarDialog.layout();
             }
         });
 
-        updateCarDialog.setSize(500 , 400);
+        updateCarDialog.setSize(600 , 900);
         updateCarDialog.open();
 
     }
